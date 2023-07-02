@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.layouts.app');
 });
 
 Auth::routes();
+
+Route::get('/superadmin/login',function (){
+   return view('admin.auth.login');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
