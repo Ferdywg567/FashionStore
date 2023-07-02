@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductTypeController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +36,8 @@ Route::get('/admin',function (){
    return view('admin.dashboard');
 });
 
+Route::resource('/product', ProductController::class);
+Route::resource('/producttype', ProductTypeController::class);
+Route::resource('/category', CategoryController::class);
+Route::resource('/brand', BrandController::class);
 
