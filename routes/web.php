@@ -13,14 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//user route
 Route::get('/', function () {
     return view('user.layouts.app');
 });
 
 Auth::routes();
 
-Route::get('/superadmin/login',function (){
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//admin route
+Route::get('/admin/login',function (){
    return view('admin.auth.login');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin',function (){
+   return view('admin.dashboard');
+});
+
+
