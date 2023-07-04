@@ -36,15 +36,25 @@
                 </div>
                 <div class="card-body p-5">
                     <h4 class="text-dark mb-5">Sign In</h4>
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-                    <form action="/index.html">
+                    <form method="post" action="{{route('login')}}">
+                        @csrf
                         <div class="row">
                             <div class="form-group col-md-12 mb-4">
-                                <input type="email" class="form-control" id="email" placeholder="Username">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror " id="email" placeholder="Username">
                             </div>
 
                             <div class="form-group col-md-12 ">
-                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                <input type="password" class="form-control @error('email') is-invalid @enderror " id="password" placeholder="Password">
                             </div>
 
                             <div class="col-md-12">
@@ -60,10 +70,6 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
-
-                                <p class="sign-upp">Don't have an account yet ?
-                                    <a class="text-blue" href="sign-up.html">Sign Up</a>
-                                </p>
                             </div>
                         </div>
                     </form>
