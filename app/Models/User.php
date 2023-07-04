@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'telephone',
+        'role_id',
+        'membership_id',
     ];
 
     /**
@@ -41,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function membership(){
+       return $this->belongsTo(Membership::class, 'membership_id','id');
+    }
 }
