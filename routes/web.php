@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductPageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +38,9 @@ Route::get('/admin',function (){
    return view('admin.dashboard');
 });
 
-Route::resource('/product', ProductController::class);
-Route::resource('/producttype', ProductTypeController::class);
-Route::resource('/category', CategoryController::class);
-Route::resource('/brand', BrandController::class);
+Route::resource('/admin/product', ProductController::class);
+Route::resource('/admin/producttype', ProductTypeController::class);
+Route::resource('/admin/category', CategoryController::class);
+Route::resource('/admin/brand', BrandController::class);
+Route::resource('/buyer/productlist', ProductPageController::class);
 

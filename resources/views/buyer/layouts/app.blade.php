@@ -310,8 +310,14 @@
                 <!-- navbar right -->
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
+                   
+                     <button aria-expanded="false">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" height='30px' href="cart.html" class="nav-item nav-link">
+                    </button>
+          
                         <!-- User Account -->
                         <li class="dropdown user-menu">
+                       
                             <button class="dropdown-toggle nav-link ec-drop" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                 <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
@@ -919,7 +925,7 @@
 
         <!-- CONTENT WRAPPER -->
         <div class="ec-content-wrapper">
-            @yield('admin-content')
+            @yield('buyer-content')
         </div> <!-- End Content Wrapper -->
 
         <!-- Footer -->
