@@ -15,11 +15,11 @@ class AddMembershipColumn extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('membership_id');
-    
+            $table->unsignedBigInteger('membership_id')->nullable(true);
+
             $table->foreign('membership_id')->references('id')->on('memberships');
-               
- 
+
+
         });
     }
 
@@ -34,8 +34,8 @@ class AddMembershipColumn extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['membership_id']);
             $table->dropColumn('membership_id');
-      
-          
+
+
         });
     }
 }

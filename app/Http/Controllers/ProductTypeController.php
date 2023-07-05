@@ -29,6 +29,7 @@ class ProductTypeController extends Controller
     public function create()
     {
         //
+        return view('admin.producttype.formcreate');
     }
 
     /**
@@ -40,6 +41,12 @@ class ProductTypeController extends Controller
     public function store(Request $request)
     {
         //
+         $data = new ProductType();
+
+        $data->name= $request->get('nameproducttype');
+      
+        $data->save();
+        return redirect()->route('producttype.index')->with('status','Horray!! Your new product type data is already inserted');
     }
 
     /**
@@ -62,6 +69,10 @@ class ProductTypeController extends Controller
     public function edit($id)
     {
         //
+           $objProductType = ProductType::find($id);
+        // dd($objCategory,$id);
+        $data=$objProductType;
+        return view ('admin.producttype.formedit',compact('data'));
     }
 
     /**
@@ -74,6 +85,11 @@ class ProductTypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $objProductType = ProductType::find($id);
+        $objProductType->name = $request->get('nameproducttype');
+   
+        $objProductType->save();
+        return redirect()->route('producttype.index')->with('status', 'Your Product Type is already up-to-date');
     }
 
     /**
@@ -85,5 +101,16 @@ class ProductTypeController extends Controller
     public function destroy($id)
     {
         //
+         try{
+            $objProductType = ProductType::find($id);
+            $objProductType->delete();
+            return redirect()->route('producttype.index')->with('status', 'Your Product Type is already removed');
+
+
+        }catch(\PDOException $ex)
+        {
+            $msg = "Data Gagal dihapus. Pastikan kembali tidak ada data yang berelasi sebelum dihapus";
+            return redirect()->route('producttype.index')->with('status',$msg);
+        }
     }
 }

@@ -46,15 +46,15 @@
                         </div>
                     @endif
 
-                    <form method="post" action="{{route('login')}}">
+                    <form method="post" action="/admin/login">
                         @csrf
                         <div class="row">
                             <div class="form-group col-md-12 mb-4">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror " id="email" placeholder="Username">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="email">
                             </div>
 
                             <div class="form-group col-md-12 ">
-                                <input type="password" class="form-control @error('email') is-invalid @enderror " id="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
 
                             <div class="col-md-12">
@@ -68,7 +68,6 @@
 
                                     <p><a class="text-blue" href="#">Forgot Password?</a></p>
                                 </div>
-
                                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
                             </div>
                         </div>
