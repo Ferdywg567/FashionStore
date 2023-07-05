@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthHandlerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
@@ -19,28 +20,61 @@ use App\Http\Controllers\ProductPageController;
 |
 */
 
-//user route
-Route::get('/', function () {
-    return view('user.layouts.app');
+//middleware group
+Route::middleware(['auth'])->group(function () {
+
+    Route::middleware(['admin'])->group(function () {//admin routes will goes here
+        Route::resource('/admin/product', ProductController::class);
+        Route::resource('/admin/producttype', ProductTypeController::class);
+        Route::resource('/admin/category', CategoryController::class);
+        Route::resource('/admin/brand', BrandController::class);
+        Route::post('/admin/register', [AuthHandlerController::class, 'registerByRole']);
+    });
+
+    Route::middleware(['staff'])->group(function () {
+        Route::resource('/admin/product', ProductController::class);
+        Route::resource('/admin/producttype', ProductTypeController::class);
+        Route::resource('/admin/category', CategoryController::class);
+        Route::resource('/admin/brand', BrandController::class);
+        Route::post('/admin/register', [AuthHandlerController::class, 'registerByRole']);
+    });
+
+    Route::middleware(['user'])->group(function () {
+        Route::get('/', function () {
+            return view('user.home');
+        });
+    });
+
 });
 
-Auth::routes();
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin-dashboard')->middleware(['user','staff']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//user route
+Route::get('/', function () {
+    return view('user.home');
+})->name('home');
+Route::get('/login', function () {
+    return view('user.auth.login');
+})->name('login');
+
+Route::post('/login', [AuthHandlerController::class, 'loginByRole']);
+
+Route::get('/register', function () {
+    return view('user.auth.register');
+});
+Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
+Route::resource('/buyer/productlist', ProductPageController::class);
 
 
 //admin route
-Route::get('/admin/login',function (){
-   return view('admin.auth.login');
+Route::get('/admin/login', function () {
+    return view('admin.auth.login');
 });
 
-Route::get('/admin',function (){
-   return view('admin.dashboard');
-});
+Route::post('/admin/login', [AuthHandlerController::class, 'loginByRole']);
 
-Route::resource('/admin/product', ProductController::class);
-Route::resource('/admin/producttype', ProductTypeController::class);
-Route::resource('/admin/category', CategoryController::class);
-Route::resource('/admin/brand', BrandController::class);
-Route::resource('/buyer/productlist', ProductPageController::class);
+Route::get('/logout', [AuthHandlerController::class, 'signOut']);
 

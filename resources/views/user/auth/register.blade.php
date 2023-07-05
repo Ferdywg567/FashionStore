@@ -23,7 +23,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('register')}}" method="post">
+                            <form action="/register " method="post">
                                 @csrf
                                 <span class="ec-register-wrap ec-register-half">
                                     <label>Name*</label>
@@ -55,7 +55,7 @@
                                 </span>
 
                                 <span class="ec-register-wrap ec-register-btn">
-                                    <input type="hidden" name="role" id="role" value="1">
+                                    <input type="hidden" name="role" id="role" value="3">
                                     <button class="mt-3 btn btn-primary" type="submit">Register</button>
                                 </span>
                             </form>

@@ -93,8 +93,8 @@ class RegisterController extends Controller
             $user->update([
                 "membership_id" => $membership['id']
             ]);
-            DB::commit();
 
+            DB::commit();
             return $user;
         }catch (\Exception $ex){
             DB::rollBack();
