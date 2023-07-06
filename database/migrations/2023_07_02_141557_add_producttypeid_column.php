@@ -15,9 +15,9 @@ class AddProducttypeidColumn extends Migration
     {
         //
         Schema::table('products', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_type_id');
+            // $table->unsignedBigInteger('product_type_id');
     
-            $table->foreign('product_type_id')->references('id')->on('product_types');
+            // $table->foreign('product_type_id')->references('id')->on('product_types');
                
  
         });
@@ -32,8 +32,8 @@ class AddProducttypeidColumn extends Migration
     {
         //
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['product_type_id']);
-            $table->dropColumn('product_type_id');
+            // $table->dropForeign(['product_type_id']);
+            // $table->dropColumn('product_type_id');
       
           
         });

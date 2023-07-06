@@ -36,7 +36,7 @@
                 <input type="file" class="form-control" id='image' name='images'>
                 <br>
                 <label>Product Type :</label>
-                <select name="product_type_id" class="form-control">
+                <select name="product_type_id[]" class="form-control" multiple>
                     @foreach ($producttypes as $item)
                         <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach

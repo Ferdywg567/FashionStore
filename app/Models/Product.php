@@ -9,15 +9,24 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function categories(){
-            $this->belongsToMany(Category::class, 'categories_products','category_id', 'product_id');
-    }
+    // public function categories(){
+    //         $this->belongsToMany(Category::class, 'categories_products','category_id', 'product_id');
+    // }
 
-    public function product_types()
+    // public function product_types()
+    // {
+    //     return $this->belongsTo(ProductType::class,'product_type_id');
+
+    // }
+
+    /**
+     * The categories that belong to the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
     {
-
-        return $this->belongsTo(ProductType::class,'product_type_id');
-
+        return $this->belongsToMany(Category::class, 'categories_products', 'product_id', 'type_id');
     }
 
     public function brands()
