@@ -18,18 +18,14 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('/login');
-        }
-
-        if (Auth::user()->role_id == 1) {
-            return redirect()->route('admin-dashboard');
+            return redirect()->route('login');
         }
 
         elseif (Auth::user()->role_id == 2) {
             return redirect()->route('admin-dashboard');
         }
 
-        else {
+        elseif (Auth::user()->role_id == 3){
             return redirect()->route('home');
         }
 

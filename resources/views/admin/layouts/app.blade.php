@@ -123,12 +123,12 @@
                         <div class="collapse">
                             <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                                 <li class="">
-                                    <a class="sidenav-item-link" href="main-category.html">
+                                    <a class="sidenav-item-link" href="{{route('category.index')}}">
                                         <span class="nav-text">Main Category</span>
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="sidenav-item-link" href="sub-category.html">
+                                    <a class="sidenav-item-link" href="{{route('producttype.index')}}">
                                         <span class="nav-text">Sub Category</span>
                                     </a>
                                 </li>
@@ -145,23 +145,13 @@
                         <div class="collapse">
                             <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                                 <li class="">
-                                    <a class="sidenav-item-link" href="product-add.html">
+                                    <a class="sidenav-item-link" href="{{route('product.create')}}">
                                         <span class="nav-text">Add Product</span>
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="sidenav-item-link" href="product-list.html">
+                                    <a class="sidenav-item-link" href="{{route('product.index')}}">
                                         <span class="nav-text">List Product</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="product-grid.html">
-                                        <span class="nav-text">Grid Product</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="sidenav-item-link" href="product-detail.html">
-                                        <span class="nav-text">Product Detail</span>
                                     </a>
                                 </li>
                             </ul>

@@ -20,18 +20,11 @@ class StaffAuth
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-
-        if (Auth::user()->role_id == 1) {
-            return redirect()->route('admin-dashboard');
-        }
-
-        elseif (Auth::user()->role_id == 2) {
-            return redirect()->route('admin-dashboard');
-        }
-
-        else {
+        elseif (Auth::user()->role == 3) {
             return redirect()->route('home');
         }
-        return $next($request);
+        else {
+            return $next($request);
+        }
     }
 }
