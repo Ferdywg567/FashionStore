@@ -64,7 +64,7 @@
                 <!-- Header Top social End -->
                 <!-- Header Top Category Toggle Start -->
                 <a href="#ec-mobile-sidebar" class="ec-header-btn ec-sidebar-toggle d-lg-none">
-                    <img src="assets/images/icons/category-icon.svg" class="svg_img header_svg" alt="icon"/>
+                    <img src="{{asset('')}}assets/images/icons/category-icon.svg" class="svg_img header_svg" alt="icon"/>
                 </a>
                 <!-- Header Top Category Toggle End -->
                 <!-- Header Top Message Start -->
@@ -107,7 +107,7 @@
                         <!-- Header User Start -->
                         <div class="ec-header-user dropdown">
                             <button class="dropdown-toggle" data-bs-toggle="dropdown"><img
-                                    src="assets/images/icons/user.svg" class="svg_img header_svg" alt=""/></button>
+                                    src="{{asset('')}}assets/images/icons/user.svg" class="svg_img header_svg" alt=""/></button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li><a class="dropdown-item" href="register.html">Register</a></li>
                                 <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
@@ -121,21 +121,21 @@
                         <!-- Header User End -->
                         <!-- Header Cart Start -->
                         <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                            <div class="header-icon"><img src="assets/images/icons/wishlist.svg"
+                            <div class="header-icon"><img src="{{asset('')}}assets/images/icons/wishlist.svg"
                                                           class="svg_img header_svg" alt=""/></div>
                             <span class="ec-header-count">4</span>
                         </a>
                         <!-- Header Cart End -->
                         <!-- Header Cart Start -->
                         <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                            <div class="header-icon"><img src="assets/images/icons/cart.svg"
+                            <div class="header-icon"><img src="{{asset('')}}assets/images/icons/cart.svg"
                                                           class="svg_img header_svg" alt=""/></div>
                             <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
                         </a>
                         <!-- Header Cart End -->
                         <!-- Header menu Start -->
                         <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                            <img src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon"/>
+                            <img src="{{asset('')}}assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon"/>
                         </a>
                         <!-- Header menu End -->
                     </div>
@@ -153,8 +153,8 @@
                     <!-- Ec Header Logo Start -->
                     <div class="align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo-8.png" alt="Site Logo"/><img
-                                    class="dark-logo" src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
+                            <a href="/"><img src="{{asset('')}}assets/images/logo/logo-8.png" alt="Site Logo"/><img
+                                    class="dark-logo" src="{{asset('')}}assets/images/logo/dark-logo-8.png" alt="Site Logo"
                                     style="display: none;"/></a>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                             <!-- Header User Start -->
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown"><img
-                                        src="assets/images/icons/user.svg" class="svg_img header_svg" alt=""/></button>
+                                        src="{{asset('')}}assets/images/icons/user.svg" class="svg_img header_svg" alt=""/></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a class="dropdown-item" href="register.html">Register</a></li>
                                     <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
@@ -193,14 +193,14 @@
                             <!-- Header User End -->
                             <!-- Header wishlist Start -->
                             <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                <div class="header-icon"><img src="assets/images/icons/wishlist.svg"
+                                <div class="header-icon"><img src="{{asset('')}}assets/images/icons/wishlist.svg"
                                                               class="svg_img header_svg" alt=""/></div>
                                 <span class="ec-header-count">4</span>
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><img src="assets/images/icons/cart.svg"
+                                <div class="header-icon"><img src="{{asset('')}}assets/images/icons/cart.svg"
                                                               class="svg_img header_svg" alt=""/></div>
                                 <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
                             </a>
@@ -221,8 +221,8 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo-8.png" alt="Site Logo"/><img
-                                class="dark-logo" src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
+                        <a href="/"><img src="{{asset('')}}assets/images/logo/logo-8.png" alt="Site Logo"/><img
+                                class="dark-logo" src="{{asset('')}}assets/images/logo/dark-logo-8.png" alt="Site Logo"
                                 style="display: none;"/></a>
                     </div>
                 </div>
@@ -232,7 +232,7 @@
                     <div class="header-search">
                         <form class="ec-btn-group-form" action="#">
                             <input class="form-control" placeholder="Enter Your Product Name..." type="text">
-                            <button class="submit" type="submit"><img src="assets/images/icons/search.svg"
+                            <button class="submit" type="submit"><img src="{{asset('')}}assets/images/icons/search.svg"
                                                                       class="svg_img header_svg" alt="icon"/></button>
                         </form>
                     </div>
@@ -249,7 +249,7 @@
                 <div class="col-md-12 align-self-center">
                     <div class="ec-main-menu">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
                                 <ul class="mega-menu d-block">
                                     <li class="d-flex">
@@ -502,7 +502,7 @@
         <div class="ec-menu-inner">
             <div class="ec-menu-content">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="javascript:void(0)">Categories</a>
                         <ul class="sub-menu">
                             <li>
@@ -1006,7 +1006,7 @@
                     <!-- Footer Copyright Start -->
                     <div class="footer-copy">
                         <div class="footer-bottom-copy ">
-                            <div class="ec-copy">Copyright © <a class="site-name" href="index.html">Ekka</a> all
+                            <div class="ec-copy">Copyright © <a class="site-name" href="/">Ekka</a> all
                                 rights reserved. Powered by Ekka
                             </div>
                         </div>
@@ -1186,7 +1186,7 @@
                         class="ec-cart-noti ec-header-count ec-cart-count cart-count-lable">3</span></a>
             </div>
             <div class="ec-nav-panel-icons">
-                <a href="index.html" class="ec-header-btn"><img src="assets/images/icons/home.svg"
+                <a href="/" class="ec-header-btn"><img src="assets/images/icons/home.svg"
                                                                 class="svg_img header_svg" alt="icon"/></a>
             </div>
             <div class="ec-nav-panel-icons">
@@ -1205,17 +1205,17 @@
 </div>
 <!-- Footer navigation panel for responsive display end -->
 
-{{--<!-- Recent Purchase Popup  -->--}}
-{{--<div class="recent-purchase">--}}
-{{--    <img src="assets/images/product-image/111_1.jpg" alt="payment image">--}}
-{{--    <div class="detail">--}}
-{{--        <p>Someone in new just bought</p>--}}
-{{--        <h6>Rose Gold Earrings</h6>--}}
-{{--        <p>2 Minutes ago</p>--}}
-{{--    </div>--}}
-{{--    <a href="javascript:void(0)" class="icon-btn recent-close">×</a>--}}
-{{--</div>--}}
-{{--<!-- Recent Purchase Popup end -->--}}
+<!-- Recent Purchase Popup  -->
+<div class="recent-purchase">
+    <img src="assets/images/product-image/111_1.jpg" alt="payment image">
+    <div class="detail">
+        <p>Someone in new just bought</p>
+        <h6>Rose Gold Earrings</h6>
+        <p>2 Minutes ago</p>
+    </div>
+    <a href="javascript:void(0)" class="icon-btn recent-close">×</a>
+</div>
+<!-- Recent Purchase Popup end -->
 
 <!-- Add to Cart successfully toast Start -->
 <div id="addtocart_toast" class="addtocart_toast">
