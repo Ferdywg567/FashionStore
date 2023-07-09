@@ -16,83 +16,52 @@ class TransactionController extends Controller
         $carts   = Cart::whereUserId(Auth::id())->get();
         $total   = 0;
         $success = false;
-        // DB::beginTransaction();
-        $transaction = Transaction::create([
-            'user_id'        => Auth::id(),
-            'pajak'          => 0,
-            'poin_transaksi' => 0,
-            'total'          => 0,
-        ]);
-
-        foreach ($carts as $key => $cart) {
-            $subtotal = $cart->product->price * $cart->quantity;
-            $transaction->details()->create([
-                'product_id' => $cart->product_id,
-                'quantity'   => $cart->quantity,
-                'subtotal'   => $subtotal,
+        DB::beginTransaction();
+        
+        try {
+            $transaction = Transaction::create([
+                'user_id'        => Auth::id(),
+                'pajak'          => 0,
+                'poin_transaksi' => 0,
+                'total'          => 0,
             ]);
 
-            $cart->delete();
+            foreach ($carts as $key => $cart) {
+                $subtotal = $cart->product->price * $cart->quantity;
+                $transaction->details()->create([
+                    'product_id' => $cart->product_id,
+                    'quantity'   => $cart->quantity,
+                    'subtotal'   => $subtotal,
+                ]);
 
-            $total += $subtotal;
+                $cart->delete();
+
+                $total += $subtotal;
+            }
+
+            $transaction->pajak          = ($total * 11) / 100;
+            $transaction->poin_transaksi = $total % 100000;
+            $transaction->total          = $total;
+
+            $transaction->save();
+
+            if($transaction->poin_transaksi > 1) {
+                $membership = Auth::user()->membership;
+
+                $membership->jumlah_poin += $transaction->poin_transaksi;
+                $membership->save();
+            }
+
+            DB::commit();
+            alert()->success('Terima kasih telah berbelanja!');
+            $success = true;
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            alert()->error('Maaf, sepertinya ada kesalahan.');
+            $success = false;
         }
 
-        $transaction->pajak          = ($total * 11) / 100;
-        $transaction->poin_transaksi = $total % 100000;
-        $transaction->total          = $total;
-
-        $transaction->save();
-
-        if($transaction->poin_transaksi > 1) {
-            $membership = Auth::user()->membership;
-
-            $membership->jumlah_poin += $transaction->poin_transaksi;
-            $membership->save();
-        }
-        // try {
-        //     $transaction = Transaction::create([
-        //         'user_id'        => Auth::id(),
-        //         'pajak'          => 0,
-        //         'poin_transaksi' => 0,
-        //         'total'          => 0,
-        //     ]);
-
-        //     foreach ($carts as $key => $cart) {
-        //         $subtotal = $cart->product->price * $cart->quantity;
-        //         $transaction->details()->create([
-        //             'product_id' => $cart->product_id,
-        //             'quantity'   => $cart->quantity,
-        //             'subtotal'   => $subtotal,
-        //         ]);
-
-        //         $cart->delete();
-
-        //         $total += $subtotal;
-        //     }
-
-        //     $transaction->pajak          = ($total * 11) / 100;
-        //     $transaction->poin_transaksi = $total % 100000;
-        //     $transaction->total          = $total;
-
-        //     $transaction->save();
-
-        //     if($transaction->poin_transaksi > 1) {
-        //         $membership = Membership::whereUserId(Auth::id())->first();
-
-        //         $membership->jumlah_poin += $transaction->poin_transaksi;
-        //         $membership->save();
-        //     }
-
-        //     DB::commit();
-        //     alert()->success('Terima kasih telah berbelanja!');
-        //     $success = true;
-        // } catch (\Throwable $th) {
-        //     DB::rollBack();
-        //     alert()->error('Maaf, sepertinya ada kesalahan.');
-        //     $success = false;
-        // }
-
-        $transaction->load('details');
+        // $transaction->load('details');
 
         if($success) {
             return redirect()->route('showReceipt', $transaction->id);

@@ -37,7 +37,7 @@ class HomePageController extends Controller
 
     public function histories() {
         $carts = Cart::whereUserId(Auth::id())->get();
-        $transactions = Transaction::whereUserId(Auth::id())->get();
+        $transactions = Transaction::whereUserId(Auth::id())->latest()->get();
 
         return view('user.history', compact('transactions','carts'));
     }

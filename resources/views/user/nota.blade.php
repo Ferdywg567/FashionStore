@@ -43,7 +43,7 @@
 
         @media print {
             #back-btn {
-                display: none;
+                display: none !important;
             }
         }
     </style>
