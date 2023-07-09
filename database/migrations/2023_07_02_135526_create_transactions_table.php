@@ -15,11 +15,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('transaction_date');
+            $table->foreignId('user_id');
+            // $table->dateTime('transaction_date');
             $table->double('pajak',10,2);
-            $table->enum('payment', ['Cash', 'Bank']);
+            // $table->enum('payment', ['Cash', 'Bank']);
             $table->integer('poin_transaksi');
-            $table->double('promo',10,2);
+            // $table->double('promo',10,2);
             $table->double('total',10,2);
             $table->timestamps();
         });
