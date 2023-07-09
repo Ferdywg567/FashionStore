@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Cart extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
     /**
-     * Get all of the details for the Transaction
+     * Get the product that owns the Cart
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function details()
+    public function product()
     {
-        return $this->hasMany(TransactionDetail::class, 'transaction_id', 'id');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
     /**
-     * Get the user that owns the Transaction
+     * Get the user that owns the Cart
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -30,5 +30,4 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
 }
