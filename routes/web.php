@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BuyerController;
-use App\Http\Controllers\ProductPageController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\StaffController;
 
 /*
@@ -43,9 +43,7 @@ Route::middleware(['user'])->group(function () {
 
 
 //user route
-Route::get('/', function () {
-    return view('user.home');
-})->name('home');
+Route::get('/', [HomePageController::class,'index'])->name('home');
 Route::get('/login', function () {
     return view('user.auth.login');
 })->name('login');
@@ -56,7 +54,8 @@ Route::get('/register', function () {
     return view('user.auth.register');
 });
 Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
-Route::resource('/buyer/productlist', ProductPageController::class);
+Route::resource('/buyer/productlist', HomePageController::class);
+Route::get('/product/{id}', [ProductController::class,'show']);
 
 
 //admin route

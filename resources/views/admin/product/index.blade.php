@@ -34,11 +34,10 @@
                             @php
                                 $images = json_decode($d->images);
                             @endphp
-                            {{-- <img style="width:100px" src='{{ $d->image }}'/> --}}
                             @forelse ($images as $item)
                                 <img style="width:100px" src='{{ asset($item) }}'/>
                             @empty
-                                
+
                             @endforelse
                         </td>
                         <td>{{$d->name}}</td>
