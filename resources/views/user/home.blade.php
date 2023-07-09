@@ -27,78 +27,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ec-slide-item swiper-slide d-flex slide-1 swiper-slide-duplicate-active"
-                         data-swiper-slide-index="0" style="width: 708px;" role="group" aria-label="2 / 5">
-                        <div class="container align-self-center">
-                            <div class="row">
-                                <div class="col-sm-12 align-self-center">
-                                    <div class="ec-slide-content slider-animation">
-                                        <h2 class="ec-slide-stitle">Sale offer</h2>
-                                        <h1 class="ec-slide-title">New Fashion Summer Sale</h1>
-                                        <div class="ec-slide-desc">
-                                            <p>starting at $ <b>29</b>.99</p>
-                                            <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                                    class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
+                    @forelse($listOfNewArrival as $data)
+                        @php
+                            $images = json_decode($data->images);
+                        @endphp
+                        <div class="ec-slide-item swiper-slide d-flex slide-1 swiper-slide-duplicate-active"
+                             data-swiper-slide-index="0" style="width: 708px;background-image: url({{isset($images) ? $images[0]:'' }});" role="group" aria-label="2 / 5">
+                            <div class="container align-self-center">
+                                <div class="row">
+                                    <div class="col-sm-12 align-self-center">
+                                        <div class="ec-slide-content slider-animation">
+                                            <h2 class="ec-slide-stitle">Sale offer</h2>
+                                            <h1 class="ec-slide-title">{{$data->name}}</h1>
+                                            <div class="ec-slide-desc">
+                                                <p>starting at Rp. <b>{{$data->price}}</b></p>
+                                                <a href="#" class="btn btn-lg btn-primary">Shop Now <i
+                                                        class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="ec-slide-item swiper-slide d-flex slide-2" data-swiper-slide-index="1"
-                         style="width: 708px;" role="group" aria-label="3 / 5">
-                        <div class="container align-self-center">
-                            <div class="row">
-                                <div class="col-sm-12 align-self-center">
-                                    <div class="ec-slide-content slider-animation">
-                                        <h2 class="ec-slide-stitle">Trending item</h2>
-                                        <h1 class="ec-slide-title">Women's latest fashion sale</h1>
-                                        <div class="ec-slide-desc">
-                                            <p>starting at $ <b>20</b>.00</p>
-                                            <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                                    class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ec-slide-item swiper-slide d-flex slide-3 swiper-slide-prev swiper-slide-duplicate-next"
-                         data-swiper-slide-index="2" style="width: 708px;" role="group" aria-label="4 / 5">
-                        <div class="container align-self-center">
-                            <div class="row">
-                                <div class="col-sm-12 align-self-center">
-                                    <div class="ec-slide-content slider-animation">
-                                        <h2 class="ec-slide-stitle">Trending accessories</h2>
-                                        <h1 class="ec-slide-title">Modern Sunglasses</h1>
-                                        <div class="ec-slide-desc">
-                                            <p>starting at $ <b>15</b>.00</p>
-                                            <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                                    class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ec-slide-item swiper-slide d-flex slide-1 swiper-slide-duplicate swiper-slide-active"
-                         data-swiper-slide-index="0" style="width: 708px;" role="group" aria-label="5 / 5">
-                        <div class="container align-self-center">
-                            <div class="row">
-                                <div class="col-sm-12 align-self-center">
-                                    <div class="ec-slide-content slider-animation">
-                                        <h2 class="ec-slide-stitle">Sale offer</h2>
-                                        <h1 class="ec-slide-title">New Fashion Summer Sale</h1>
-                                        <div class="ec-slide-desc">
-                                            <p>starting at $ <b>29</b>.99</p>
-                                            <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                                    class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
                 <div
                     class="swiper-pagination swiper-pagination-white swiper-pagination-clickable swiper-pagination-bullets">
