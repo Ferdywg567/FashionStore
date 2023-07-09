@@ -45,6 +45,8 @@ class AuthHandlerController extends Controller
                         return redirect()->intended('/');
                     }
                 }
+                Session::flush();
+                Auth::logout();
                 return redirect("/login")->withErrors('Login details are not valid');
             }
         }
