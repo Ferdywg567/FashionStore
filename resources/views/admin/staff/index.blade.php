@@ -129,10 +129,6 @@
             </div>
         </div>
     </div>
-    <form action="" method="POST" class="d-none form-delete">
-        @csrf
-        @method('DELETE')
-    </form>
 @endsection
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -15,7 +15,7 @@
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
                 <li class="active">
-                    <a class="sidenav-item-link" href="index.html">
+                    <a class="sidenav-item-link" href="{{route('admin-dashboard')}}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -97,25 +97,11 @@
                 </li> --}}
 
                 <!-- Category -->
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)">
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('category.index') }}">
                         <i class="mdi mdi-dns-outline"></i>
-                        <span class="nav-text">Categories</span> <b class="caret"></b>
+                        <span class="nav-text">Categories</span>
                     </a>
-                    <div class="collapse">
-                        <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
-                            <li class="">
-                                <a class="sidenav-item-link" href="{{ route('category.index') }}">
-                                    <span class="nav-text">Main Category</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="sidenav-item-link" href="{{ route('producttype.index') }}">
-                                    <span class="nav-text">Sub Category</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
                 <!-- Products -->
@@ -174,7 +160,7 @@
 
                 <!-- Reviews -->
                 <li>
-                    <a class="sidenav-item-link" href="review-list.html">
+                    <a class="sidenav-item-link" href="{{route('transaction.index')}}">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Orders</span>
                     </a>

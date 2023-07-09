@@ -8,7 +8,7 @@
                 <!-- Recent Order Table -->
                 <div class="card card-table-border-none card-default recent-orders" id="recent-orders">
                     <div class="card-header justify-content-between">
-                        <h2>Recent Orders</h2>
+                        <h2>All Orders</h2>
                         {{-- <div class="date-range-report">
                             <span></span>
                         </div> --}}

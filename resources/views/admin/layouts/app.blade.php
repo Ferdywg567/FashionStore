@@ -61,7 +61,13 @@
     </div> <!-- End Page Wrapper -->
 </div> <!-- End Wrapper -->
 
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@11"])
+<form class="form-delete d-none" action="" method="POST">
+    @csrf
+    @method('DELETE')
+</form>
+
+{{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@11"]) --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Common Javascript -->
 <script src="{{asset('')}}assets/plugins/jquery/jquery-3.5.1.min.js"></script>

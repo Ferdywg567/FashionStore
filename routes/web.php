@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TransactionController;
@@ -31,12 +32,17 @@ Route::middleware(['admin', 'staff'])->prefix('admin')->group(function () {//adm
     Route::resource('/brand', BrandController::class);
     Route::resource('/staff', StaffController::class)->except(['show', 'create', 'edit']);
     Route::resource('/buyer', BuyerController::class);
-
+    Route::resource('/transaction', TransactionController::class)->except(['edit', 'update', 'create', 'store']);
+    
     // Route::post('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
     Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin-dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard');
+    
+
+    
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin-dashboard');
 });
 
 Route::middleware(['user'])->group(function () {
