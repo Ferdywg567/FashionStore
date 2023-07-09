@@ -30,13 +30,13 @@ class AddProductidColumn extends Migration
  
         });
 
-        // Schema::table('carts', function (Blueprint $table) {
-        //     $table->unsignedBigInteger('product_id');
+        Schema::table('carts', function (Blueprint $table) {
+            $table->unsignedBigInteger('product_id');
     
-        //     $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
                
  
-        // });
+        });
        
         
     }
