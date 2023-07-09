@@ -11,15 +11,6 @@ class Transaction extends Model
 
     protected $guarded = [];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function($transaction) {
-            $transaction->details()->delete();
-        });
-    }
-
     /**
      * Get all of the details for the Transaction
      *
