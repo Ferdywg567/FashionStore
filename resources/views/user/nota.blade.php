@@ -1,6 +1,7 @@
 <!-- transactions/receipt_pdf.blade.php -->
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         body {
@@ -21,7 +22,8 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #000;
             padding: 5px;
         }
@@ -38,10 +40,17 @@
         tfoot tr:last-child td {
             border-top: 2px solid #000;
         }
+
+        @media print {
+            #back-btn {
+                display: none;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <h1>Receipt Order #{{$transaction->id}}</h1>
+    <h1>Receipt Order #{{ $transaction->id }}</h1>
 
     <table>
         <thead>
@@ -82,5 +91,9 @@
             </tr>
         </tfoot>
     </table>
+    <div id="back-btn" style="display: flex; justify-content:center;padding: 20px">
+        <a href="{{ route('home') }}"><u>kembali ke beranda</u></a>
+    </div>
 </body>
+
 </html>

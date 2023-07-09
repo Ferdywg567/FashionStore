@@ -160,7 +160,7 @@
 
                 <!-- Reviews -->
                 <li>
-                    <a class="sidenav-item-link" href="review-list.html">
+                    <a class="sidenav-item-link" href="{{route('transaction.index')}}">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Orders</span>
                     </a>

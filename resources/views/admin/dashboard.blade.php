@@ -33,7 +33,7 @@
                                             <a class="text-dark" href="">{{ $item->user->name }}</a>
                                         </td>
                                         <td class="d-none d-lg-table-cell">{{ $item->poin_transaksi }}</td>
-                                        <td class="d-none d-lg-table-cell">{{ $item->created_at->format('d F Y')}}</td>
+                                        <td class="d-none d-lg-table-cell">{{ $item->created_at->format('d F Y') }}</td>
                                         <td class="d-none d-lg-table-cell">Rp. {{ $item->total }}</td>
                                         <td class="text-right">
                                             <div class="dropdown show d-inline-block widget-dropdown">
@@ -41,11 +41,11 @@
                                                     id="dropdown-recent-order1" data-bs-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                                                 <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li class="dropdown-item">
+                                                    {{-- <li class="dropdown-item">
                                                         <a href="{{route('transaction.show', $item->id)}}">View</a>
-                                                    </li>
+                                                    </li> --}}
                                                     <li class="dropdown-item">
-                                                        <a data-href="{{route('transaction.show', $item->id)}}">Remove</a>
+                                                        <a href="#" class="btn-delete" data-href="{{ route('transaction.destroy', $item->id) }}">Remove</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -62,3 +62,35 @@
 
     </div> <!-- End Content -->
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            
+            $('.btn-delete').click(function (e) { 
+                e.preventDefault();
+
+                let url = $(this).data('href');
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('.form-delete').attr('action', url);
+                        $('.form-delete').submit();
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+        });
+    </script>
+@endpush

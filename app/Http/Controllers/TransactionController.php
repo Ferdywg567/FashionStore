@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Membership;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,13 @@ class TransactionController extends Controller
 
             $transaction->save();
 
+            if($transaction->poin_transaksi > 1) {
+                $membership = Membership::whereUserId(Auth::id())->first();
+
+                $membership->jumlah_poin += $transaction->poin_transaksi;
+                $membership->save();
+            }
+
             DB::commit();
             alert()->success('Terima kasih telah berbelanja!');
             $success = true;
@@ -69,6 +77,13 @@ class TransactionController extends Controller
     }
 
     public function index() {
-        return view('');
+        $transactions = Transaction::with(['details', 'user', 'details.product'])->get();
+        return view('admin.transaction.index', compact('transactions'));
+    }
+
+    public function destroy(Transaction $transaction) {
+        $transaction->delete();
+        alert()->success('Transaksi Berhasil dihapus!');
+        return back();
     }
 }
