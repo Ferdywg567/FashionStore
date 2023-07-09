@@ -3,7 +3,7 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         <div class="ec-brand">
-            <a href="index.html" title="Ekka">
+            <a href="/" title="Ekka">
                 <img class="ec-brand-icon" src="{{ asset('') }}assets/img/logo/ec-site-logo.png" alt="" />
                 <span class="ec-brand-name text-truncate">Fashion</span>
             </a>

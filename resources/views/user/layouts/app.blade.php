@@ -112,10 +112,10 @@
                                             src="assets/images/icons/user.svg" class="svg_img header_svg"
                                             alt="" /></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><span class="dropdown-item">POIN SAYA : <br>
-                                                {{ Auth::user()->membership->jumlah_poin }}</span></li>
-                                        <li><a class="dropdown-item" href="{{ route('history') }}">History</a></li>
                                         @if (Auth::check())
+                                            <li><span class="dropdown-item">POIN SAYA : <br>
+                                                {{ Auth::user()->membership->jumlah_poin }}</span></li>
+                                            <li><a class="dropdown-item" href="{{ route('history') }}">History</a></li>
                                             <li><a class="dropdown-item" href="/logout">Logout</a></li>
                                         @else
                                             <li><a class="dropdown-item" href="/register">Register</a></li>
@@ -160,7 +160,7 @@
                             <!-- Ec Header Logo Start -->
                             <div class="align-self-center">
                                 <div class="header-logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo-8.png"
+                                    <a href="/"><img src="assets/images/logo/logo-8.png"
                                             alt="Site Logo" /><img class="dark-logo"
                                             src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
                                             style="display: none;" /></a>
@@ -192,11 +192,11 @@
                                                 src="assets/images/icons/user.svg" class="svg_img header_svg"
                                                 alt="" /></button>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><span class="dropdown-item">POIN SAYA : <br>
-                                                    {{ Auth::user()->membership->jumlah_poin }}</span></li>
-                                            <li><a class="dropdown-item" href="{{ route('history') }}">History</a>
-                                            </li>
                                             @if (Auth::check())
+                                                <li><span class="dropdown-item">POIN SAYA : <br>
+                                                    {{ Auth::user()->membership->jumlah_poin }}</span></li>
+                                                <li><a class="dropdown-item" href="{{ route('history') }}">History</a>
+                                                </li>
                                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                                             @else
                                                 <li><a class="dropdown-item" href="/register">Register</a></li>
@@ -236,7 +236,7 @@
                         <!-- Ec Header Logo Start -->
                         <div class="col">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/images/logo/logo-8.png" alt="Site Logo" /><img
+                                <a href="/"><img src="assets/images/logo/logo-8.png" alt="Site Logo" /><img
                                         class="dark-logo" src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
@@ -265,7 +265,7 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li class="dropdown position-static"><a href="javascript:void(0)">Categories</a>
                                         <ul class="mega-menu d-block">
                                             <li class="d-flex">
@@ -571,7 +571,7 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="javascript:void(0)">Categories</a>
                                 <ul class="sub-menu">
                                     <li>
@@ -1106,7 +1106,7 @@
                         <!-- Footer Copyright Start -->
                         <div class="footer-copy">
                             <div class="footer-bottom-copy ">
-                                <div class="ec-copy">Copyright © <a class="site-name" href="index.html">Ekka</a> all
+                                <div class="ec-copy">Copyright © <a class="site-name" href="/">Ekka</a> all
                                     rights reserved. Powered by Ekka
                                 </div>
                             </div>
@@ -1298,7 +1298,7 @@
                     </a>
                 </div>
                 <div class="ec-nav-panel-icons">
-                    <a href="index.html" class="ec-header-btn"><img src="assets/images/icons/home.svg"
+                    <a href="/" class="ec-header-btn"><img src="assets/images/icons/home.svg"
                             class="svg_img header_svg" alt="icon" /></a>
                 </div>
                 <div class="ec-nav-panel-icons">
