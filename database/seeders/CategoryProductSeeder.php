@@ -18,55 +18,55 @@ class CategoryProductSeeder extends Seeder
     {
         //
         DB::table('categories_products')->insert([
-            'category_id'=> 1,
-            'product_id'=> 1,
+            'type_id'    => 1,
+            'product_id' => 1,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 4,
-            'product_id'=> 1,
+            'type_id'    => 4,
+            'product_id' => 1,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 1,
-            'product_id'=> 2,
+            'type_id'    => 1,
+            'product_id' => 2,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 1,
-            'product_id'=> 3,
+            'type_id'    => 1,
+            'product_id' => 3,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 3,
+            'type_id'=> 3,
             'product_id'=> 4,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 5,
+            'type_id'=> 5,
             'product_id'=> 4,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 1,
+            'type_id'=> 1,
             'product_id'=> 5,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 3,
+            'type_id'=> 3,
             'product_id'=> 5,
 
         ]);
 
         DB::table('categories_products')->insert([
-            'category_id'=> 4,
+            'type_id'=> 4,
             'product_id'=> 5,
 
         ]);

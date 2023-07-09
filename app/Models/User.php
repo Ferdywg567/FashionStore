@@ -46,7 +46,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function membership(){
-       return $this->belongsTo(Membership::class, 'membership_id','id');
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            if($user->role_id == 3) {
+                $user->membership()->create(['jumlah_poin' => 0]);
+            }
+        });
+    }
+
+    public function membership()
+    {
+        return $this->belongsTo(Membership::class, 'membership_id', 'id');
+    }
+
+    /**
+     * Get the role that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 }

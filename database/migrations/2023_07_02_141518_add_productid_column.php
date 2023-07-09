@@ -14,13 +14,13 @@ class AddProductidColumn extends Migration
     public function up()
     {
         //
-        Schema::table('categories_products', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id');
+        // Schema::table('categories_products', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('product_id');
     
-            $table->foreign('product_id')->references('id')->on('products');
+        //     $table->foreign('product_id')->references('id')->on('products');
                
  
-        });
+        // });
 
         Schema::table('products_transactions', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id');

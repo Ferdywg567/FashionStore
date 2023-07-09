@@ -6,8 +6,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\ProductPageController;
-
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,15 @@ use App\Http\Controllers\ProductPageController;
 */
 
 //middleware group
-Route::middleware(['admin', 'staff'])->group(function () {//admin routes will goes here
-    Route::resource('/admin/product', ProductController::class);
-    Route::resource('/admin/producttype', ProductTypeController::class);
-    Route::resource('/admin/category', CategoryController::class);
-    Route::resource('/admin/brand', BrandController::class);
-    Route::post('/admin/register', [AuthHandlerController::class, 'registerByRole']);
-    Route::get('/admin/dashboard', function () {
+Route::middleware(['admin', 'staff'])->prefix('admin')->group(function () {//admin routes will goes here
+    Route::resource('/product', ProductController::class);
+    Route::resource('/producttype', ProductTypeController::class);
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/brand', BrandController::class);
+    Route::resource('/staff', StaffController::class)->only('index');
+    Route::resource('/buyer', BuyerController::class);
+    Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
+    Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin-dashboard');
 });

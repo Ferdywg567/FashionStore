@@ -30,14 +30,28 @@
                 <tbody>
                 @foreach($queryModel as $d)
                     <tr>
-                        <td><img src='{{ $d->image }}' height='200px'/></td>
+                        <td style="width: 20%">
+                            @php
+                                $images = json_decode($d->images);
+                            @endphp
+                            {{-- <img style="width:100px" src='{{ $d->image }}'/> --}}
+                            @forelse ($images as $item)
+                                <img style="width:100px" src='{{ asset($item) }}'/>
+                            @empty
+                                
+                            @endforelse
+                        </td>
                         <td>{{$d->name}}</td>
                         <td>{{$d->price}}</td>
                         <td>{{$d->stock}}</td>
                         <td>{{$d->size}}</td>
                         <td>{{$d->description}}</td>
 
-                        <td>{{$d->product_types->name}}</td>
+                        <td>
+                            @foreach ($d->categories as $item)
+                                {{ "$item->name" . ($loop->last ? '' : ', ')}}
+                            @endforeach
+                        </td>
                         <td>{{$d->brands->name}}</td>
 
                         <td>

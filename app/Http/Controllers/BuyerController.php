@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Buyer;
+use App\Models\User;
 
 class BuyerController extends Controller
 {
@@ -15,7 +16,8 @@ class BuyerController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::where('role_id', 3)->orderBy('created_at', 'desc')->get();
+        return view('admin.buyer.index', compact('users'));
     }
 
     /**
