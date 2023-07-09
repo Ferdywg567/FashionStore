@@ -555,7 +555,7 @@
                                             <div class="ec-pro-content">
                                                 <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <h6 class="ec-pro-stitle"><a
-                                                        href="shop-left-sidebar-col-3.html">{{$data->brand->name}}</a></h6>
+                                                        href="/product/{{$data->id}}">{{$data->brand->name}}</a></h6>
                                                 <div class="ec-pro-rat-price">
                                                     <div class="ec-pro-rat-pri-inner">
                                                     <span class="ec-price">
@@ -605,7 +605,7 @@
                                             <div class="ec-pro-content">
                                                 <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <h6 class="ec-pro-stitle"><a
-                                                        href="shop-left-sidebar-col-3.html">{{$data->brand->name}}</a></h6>
+                                                        href="/product/{{$data->id}}">{{$data->brand->name}}</a></h6>
                                                 <div class="ec-pro-rat-price">
                                                     <div class="ec-pro-rat-pri-inner">
                                                     <span class="ec-price">
@@ -742,7 +742,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="ec-pro-content">
-                                                        <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
+                                                        <a href="/product/{{$data->id}}"><h6 class="ec-pro-stitle">
                                                             {{$data->name}}</h6></a>
                                                         <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
@@ -786,7 +786,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="ec-pro-content">
-                                                        <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
+                                                        <a href="/product/{{$data->id}}"><h6 class="ec-pro-stitle">
                                                                 {{$data->name}}</h6></a>
                                                         <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
@@ -830,7 +830,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="ec-pro-content">
-                                                        <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
+                                                        <a href="/product/{{$data->id}}"><h6 class="ec-pro-stitle">
                                                                 {{$data->name}}</h6></a>
                                                         <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
