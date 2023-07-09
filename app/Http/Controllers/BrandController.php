@@ -40,23 +40,13 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
-         $data = new Brand();
+        $data = new Brand();
 
-        $data->name= $request->get('namebrand');
-      
+        $data->name = $request->get('name');
+
         $data->save();
-        return redirect()->route('brand.index')->with('status','Horray!! Your new brand data is already inserted');
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('brand.index')->with('status', 'Horray!! Your new brand data is already inserted');
     }
 
     /**
@@ -70,8 +60,8 @@ class BrandController extends Controller
         //
         $objBrand = Brand::find($id);
         // dd($objCategory,$id);
-        $data=$objBrand;
-        return view ('admin.brand.formedit',compact('data'));
+        $data = $objBrand;
+        return view('admin.brand.formedit', compact('data'));
     }
 
     /**
@@ -84,11 +74,11 @@ class BrandController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $objBrand = Brand::find($id);
+        $objBrand = Brand::find($id);
         $objBrand->name = $request->get('namebrand');
-   
+
         $objBrand->save();
-        return redirect()->route('brand.index')->with('status', 'Your Brand is already up-to-date');
+        return redirect()->route('brand.index')->with('status', 'Brand updated Successfully!');
     }
 
     /**
@@ -100,16 +90,13 @@ class BrandController extends Controller
     public function destroy($id)
     {
         //
-        try{
+        try {
             $objBrand = Brand::find($id);
             $objBrand->delete();
             return redirect()->route('brand.index')->with('status', 'Your Brand is already removed');
-
-
-        }catch(\PDOException $ex)
-        {
+        } catch (\PDOException $ex) {
             $msg = "Data Gagal dihapus. Pastikan kembali tidak ada data yang berelasi sebelum dihapus";
-            return redirect()->route('brand.index')->with('status',$msg);
+            return redirect()->route('brand.index')->with('status', $msg);
         }
     }
 }

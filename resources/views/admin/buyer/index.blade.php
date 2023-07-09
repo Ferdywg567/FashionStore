@@ -4,15 +4,7 @@
         <div class="breadcrumb-wrapper breadcrumb-contacts">
             <div>
                 <h1>List Akun Buyer</h1>
-                {{-- <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                    <span><i class="mdi mdi-chevron-right"></i></span>Vendor
-                </p> --}}
             </div>
-            {{-- <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVendor">
-                    Tambah Staff
-                </button>
-            </div> --}}
         </div>
         <div class="row">
             <div class="col-12">
@@ -45,50 +37,19 @@
                                             <td>{{ $user->membership ? $user->membership->jumlah_poin : 0 }}</td>
                                             <td>{{ $user->created_at->format('d F Y') }}</td>
                                             <td>
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-outline-success">Info</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                        data-display="static">
-                                                        <span class="sr-only">Info</span>
-                                                    </button>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
+                                                <button type="button" data-url="{{ route('buyer.update', $user->id) }}"
+                                                    data-name="{{ $user->name }}" data-email="{{ $user->email }}"
+                                                    data-address="{{ $user->address }}"
+                                                    data-phone="{{ $user->telephone }}"
+                                                    data-poin="{{ $user->membership ? $user->membership->jumlah_poin : 0 }}"
+                                                    class="btn btn-sm btn-outline-warning me-2 edit-buyer"
+                                                    data-bs-toggle="modal" data-bs-target="#buyerModal">Edit</button>
+                                                <button type="button" data-url="{{ route('buyer.destroy', $user->id) }}"
+                                                    class="btn btn-sm btn-outline-danger delete-buyer">Delete</button>
                                             </td>
                                         </tr>
                                     @empty
                                     @endforelse
-                                    {{-- <tr>
-                                        <td><img class="vendor-thumb" src="assets/img/vendor/u2.jpg" alt="vendor image" />
-                                        </td>
-                                        <td>Johnee Bolbi</td>
-                                        <td>johneebolbi@gmail.com</td>
-                                        <td>68</td>
-                                        <td>5161</td>
-                                        <td>ACTIVE</td>
-                                        <td>2021-10-25</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-outline-success">Info</button>
-                                                <button type="button"
-                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                    data-display="static">
-                                                    <span class="sr-only">Info</span>
-                                                </button>
-
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr> --}}
 
                                 </tbody>
                             </table>
@@ -98,69 +59,57 @@
             </div>
         </div>
         <!-- Add Vendor Modal  -->
-        <div class="modal fade modal-add-contact" id="addVendor" tabindex="-1" role="dialog"
+        <div class="modal fade modal-add-contact" id="buyerModal" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form>
+                    <form id="form-modal" action="" method="POST">
+                        @method('PUT')
+                        @csrf
                         <div class="modal-header px-4">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Add New Vendor</h5>
+                            <h5 class="modal-title">Edit Buyer</h5>
                         </div>
 
                         <div class="modal-body px-4">
-                            <div class="form-group row mb-6">
-                                <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Vendor Image</label>
-
-                                <div class="col-sm-8 col-lg-10">
-                                    <div class="custom-file mb-1">
-                                        <input type="file" class="custom-file-input" id="coverImage" required>
-                                        <label class="custom-file-label" for="coverImage">Choose file...</label>
-                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="row mb-2">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="firstName">First name</label>
-                                        <input type="text" class="form-control" id="firstName" value="John">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="lastName">Last name</label>
-                                        <input type="text" class="form-control" id="lastName" value="Deo">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group mb-4">
-                                        <label for="userName">User name</label>
-                                        <input type="text" class="form-control" id="userName" value="johndoe">
+                                        <label for="name">Nama Akun</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="John">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email"
-                                            value="johnexample@gmail.com">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="johnexample@gmail.com">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
-                                        <label for="Birthday">Birthday</label>
-                                        <input type="text" class="form-control" id="Birthday" value="10-12-1991">
+                                        <label for="phone">No. telp</label>
+                                        <input type="text" class="form-control" id="phone" name="telephone"
+                                            placeholder="+628123456789">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group mb-4">
-                                        <label for="event">Address</label>
-                                        <input type="text" class="form-control" id="event" value="Address here">
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" name="address"
+                                            placeholder="Jl. Percobaan">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group mb-4">
+                                        <label for="membership-poin">Jumlah Poin Membership</label>
+                                        <input type="number" class="form-control" id="membership-poin"
+                                            name="membership_poin" placeholder="Jumlah Poin Membership">
                                     </div>
                                 </div>
                             </div>
@@ -169,11 +118,68 @@
                         <div class="modal-footer px-4">
                             <button type="button" class="btn btn-secondary btn-pill"
                                 data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary btn-pill">Save Contact</button>
+                            <button type="submit" class="btn btn-primary btn-pill">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <form action="" method="POST" class="d-none form-delete">
+        @csrf
+        @method('DELETE')
+    </form>
 @endsection
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.edit-buyer').click(function(e) {
+
+                let url = $(this).data('url');
+                let name = $(this).data('name');
+                let email = $(this).data('email');
+                let address = $(this).data('address');
+                let phone = $(this).data('phone');
+                let poin = $(this).data('poin');
+
+                $('#form-modal').attr('action', url);
+                $('#name').val(name);
+                $('#email').val(email);
+                $('#address').val(address);
+                $('#phone').val(phone);
+                $('#membership-poin').val(poin);
+            });
+
+            $('.delete-buyer').click(function(e) {
+                e.preventDefault();
+
+                let url = $(this).data('url');
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('.form-delete').attr('action', url);
+                        $('.form-delete').submit();
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
+                })
+            });
+
+
+
+        });
+    </script>
+@endpush
