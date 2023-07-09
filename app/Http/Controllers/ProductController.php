@@ -58,7 +58,7 @@ class ProductController extends Controller
         // $data->images           = $request->images;
         if ($request->images) {
             foreach ($request->images as $key => $image) {
-                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $image_name = time() . "$key." . $image->getClientOriginalExtension();
                 $image->move(public_path('/products'), $image_name);
 
                 $images[] = "products/$image_name";

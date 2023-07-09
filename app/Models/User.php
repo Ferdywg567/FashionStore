@@ -52,8 +52,14 @@ class User extends Authenticatable
 
         static::created(function ($user) {
             if($user->role_id == 3) {
-                $user->membership()->create(['jumlah_poin' => 0]);
+                $membership = $user->membership()->create(['jumlah_poin' => 0]);
+                $user->membership_id = $membership->id;
+                $user->save();
             }
+        });
+
+        static::deleted(function($user) {
+            $user->membership()->delete();
         });
     }
 

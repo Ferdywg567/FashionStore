@@ -4,7 +4,7 @@
 
         <div class="ec-brand">
             <a href="index.html" title="Ekka">
-                <img class="ec-brand-icon" src="{{asset('')}}assets/img/logo/ec-site-logo.png" alt="" />
+                <img class="ec-brand-icon" src="{{ asset('') }}assets/img/logo/ec-site-logo.png" alt="" />
                 <span class="ec-brand-name text-truncate">Fashion</span>
             </a>
         </div>
@@ -22,15 +22,18 @@
                     <hr>
                 </li>
 
-                <li>
-                    <a class="sidenav-item-link" href="{{route('staff.index')}}">
-                        <i class="mdi mdi-account-group-outline"></i>
-                        <span class="nav-text">Admin</span>
-                    </a>
-                </li>
+                {{-- if owner show staff menu --}}
+                @if (Auth::user()->role_id == 1)
+                    <li>
+                        <a class="sidenav-item-link" href="{{ route('staff.index') }}">
+                            <i class="mdi mdi-account-group-outline"></i>
+                            <span class="nav-text">Staff</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li>
-                    <a class="sidenav-item-link" href="{{route('buyer.index')}}">
+                    <a class="sidenav-item-link" href="{{ route('buyer.index') }}">
                         <i class="mdi mdi-account-group-outline"></i>
                         <span class="nav-text">Buyer</span>
                     </a>
@@ -102,12 +105,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="{{route('category.index')}}">
+                                <a class="sidenav-item-link" href="{{ route('category.index') }}">
                                     <span class="nav-text">Main Category</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="{{route('producttype.index')}}">
+                                <a class="sidenav-item-link" href="{{ route('producttype.index') }}">
                                     <span class="nav-text">Sub Category</span>
                                 </a>
                             </li>
@@ -124,12 +127,12 @@
                     <div class="collapse">
                         <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                             <li class="">
-                                <a class="sidenav-item-link" href="{{route('product.create')}}">
+                                <a class="sidenav-item-link" href="{{ route('product.create') }}">
                                     <span class="nav-text">Add Product</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="sidenav-item-link" href="{{route('product.index')}}">
+                                <a class="sidenav-item-link" href="{{ route('product.index') }}">
                                     <span class="nav-text">List Product</span>
                                 </a>
                             </li>
@@ -138,7 +141,7 @@
                 </li>
 
                 <!-- Orders -->
-                <li class="has-sub">
+                {{-- <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Orders</span> <b class="caret"></b>
@@ -167,26 +170,26 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- Reviews -->
                 <li>
                     <a class="sidenav-item-link" href="review-list.html">
-                        <i class="mdi mdi-star-half"></i>
-                        <span class="nav-text">Reviews</span>
+                        <i class="mdi mdi-cart"></i>
+                        <span class="nav-text">Orders</span>
                     </a>
                 </li>
 
                 <!-- Brands -->
                 <li>
-                    <a class="sidenav-item-link" href="brand-list.html">
+                    <a class="sidenav-item-link" href="{{route('brand.index')}}">
                         <i class="mdi mdi-tag-faces"></i>
                         <span class="nav-text">Brands</span>
                     </a>
                     <hr>
                 </li>
 
-                <!-- Authentication -->
+                {{-- <!-- Authentication -->
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-login"></i>
@@ -248,7 +251,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

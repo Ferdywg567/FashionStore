@@ -27,8 +27,10 @@ Route::middleware(['admin', 'staff'])->prefix('admin')->group(function () {//adm
     Route::resource('/producttype', ProductTypeController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/brand', BrandController::class);
-    Route::resource('/staff', StaffController::class)->only('index');
+    Route::resource('/staff', StaffController::class)->except(['show', 'create', 'edit']);
     Route::resource('/buyer', BuyerController::class);
+
+    // Route::post('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
     Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
