@@ -51,7 +51,7 @@
                                 {{ "$item->name" . ($loop->last ? '' : ', ')}}
                             @endforeach
                         </td>
-                        <td>{{$d->brands->name}}</td>
+                        <td>{{$d->brand->name}}</td>
 
                         <td>
                             <a href="{{ route('product.edit',$d->id) }}" class="btn btn-success">Ubah</a>

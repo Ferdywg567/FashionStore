@@ -43,6 +43,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('/', function () {
         return view('user.home');
     });
+    Route::get('/profile', [ProductController::class,'show']);
 });
 
 
@@ -62,10 +63,11 @@ Route::resource('/buyer/productlist', HomePageController::class);
 Route::get('/product/{id}', [ProductController::class,'show']);
 
 
+
 //admin route
 Route::get('/admin/login', function () {
     return view('admin.auth.login');
-}); 
+});
 
 Route::post('/admin/login', [AuthHandlerController::class, 'loginByRole']);
 
