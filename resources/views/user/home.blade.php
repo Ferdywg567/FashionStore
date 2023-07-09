@@ -41,7 +41,7 @@
                                             <h1 class="ec-slide-title">{{$data->name}}</h1>
                                             <div class="ec-slide-desc">
                                                 <p>starting at Rp. <b>{{$data->price}}</b></p>
-                                                <a href="#" class="btn btn-lg btn-primary">Shop Now <i
+                                                <a href="/product/{{$data->id}}" class="btn btn-lg btn-primary">Shop Now <i
                                                         class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
@@ -490,7 +490,7 @@
                                         <div class="ec-all-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
+                                                    <a href="/product/{{$data->id}}" class="image">
                                                         @php
                                                             $images = json_decode($data->images);
                                                         @endphp
@@ -502,9 +502,9 @@
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->name}}</a></h5>
+                                                <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <h6 class="ec-pro-stitle"><a
-                                                        href="shop-left-sidebar-col-3.html">{{$data->brand->name}}</a></h6>
+                                                        href="/product/{{$data->id}}">{{$data->brand->name}}</a></h6>
                                                 <div class="ec-pro-rat-price">
                                                     <div class="ec-pro-rat-pri-inner">
                                                     <span class="ec-price">
@@ -540,7 +540,7 @@
                                         <div class="ec-all-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
+                                                    <a href="/product/{{$data->id}}" class="image">
                                                         @php
                                                             $images = json_decode($data->images);
                                                         @endphp
@@ -553,7 +553,7 @@
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->name}}</a></h5>
+                                                <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <h6 class="ec-pro-stitle"><a
                                                         href="shop-left-sidebar-col-3.html">{{$data->brand->name}}</a></h6>
                                                 <div class="ec-pro-rat-price">
@@ -591,7 +591,7 @@
                                         <div class="ec-all-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
+                                                    <a href="/product/{{$data->id}}" class="image">
                                                         @php
                                                             $images = json_decode($data->images);
                                                         @endphp
@@ -603,7 +603,7 @@
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->name}}</a></h5>
+                                                <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <h6 class="ec-pro-stitle"><a
                                                         href="shop-left-sidebar-col-3.html">{{$data->brand->name}}</a></h6>
                                                 <div class="ec-pro-rat-price">
@@ -664,7 +664,7 @@
                                                     <i class="ecicon eci-star"></i>
                                                 </span>
                                                 </div>
-                                                <h5 class="ec-spe-pro-title"><a href="product-left-sidebar.html">{{$data->name}}</a></h5>
+                                                <h5 class="ec-spe-pro-title"><a href="/product/{{$data->id}}">{{$data->name}}</a></h5>
                                                 <div class="ec-spe-pro-desc">
                                                     {{$data->description}}
                                                 </div>
@@ -729,7 +729,7 @@
                                                 <div class="ec-product-inner">
                                                     <div class="ec-pro-image-outer">
                                                         <div class="ec-pro-image">
-                                                            <a href="product-left-sidebar.html" class="image">
+                                                            <a href="/product/{{$data->id}}" class="image">
                                                                 @php
                                                                     $images = json_decode($data->images);
                                                                 @endphp
@@ -744,7 +744,7 @@
                                                     <div class="ec-pro-content">
                                                         <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
                                                             {{$data->name}}</h6></a>
-                                                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->brand->name}}</a></h5>
+                                                        <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
                                                         <span class="ec-pro-rating">
                                                             <i class="ecicon eci-star fill"></i>
@@ -773,7 +773,7 @@
                                                 <div class="ec-product-inner">
                                                     <div class="ec-pro-image-outer">
                                                         <div class="ec-pro-image">
-                                                            <a href="product-left-sidebar.html" class="image">
+                                                            <a href="/product/{{$data->id}}" class="image">
                                                                 @php
                                                                     $images = json_decode($data->images);
                                                                 @endphp
@@ -788,7 +788,7 @@
                                                     <div class="ec-pro-content">
                                                         <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
                                                                 {{$data->name}}</h6></a>
-                                                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->brand->name}}</a></h5>
+                                                        <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
                                                         <span class="ec-pro-rating">
                                                             <i class="ecicon eci-star fill"></i>
@@ -817,7 +817,7 @@
                                                 <div class="ec-product-inner">
                                                     <div class="ec-pro-image-outer">
                                                         <div class="ec-pro-image">
-                                                            <a href="product-left-sidebar.html" class="image">
+                                                            <a href="/product/{{$data->id}}" class="image">
                                                                 @php
                                                                     $images = json_decode($data->images);
                                                                 @endphp
@@ -832,7 +832,7 @@
                                                     <div class="ec-pro-content">
                                                         <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
                                                                 {{$data->name}}</h6></a>
-                                                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->brand->name}}</a></h5>
+                                                        <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
                                                         <span class="ec-pro-rating">
                                                             <i class="ecicon eci-star fill"></i>
@@ -861,7 +861,7 @@
                                                 <div class="ec-product-inner">
                                                     <div class="ec-pro-image-outer">
                                                         <div class="ec-pro-image">
-                                                            <a href="product-left-sidebar.html" class="image">
+                                                            <a href="/product/{{$data->id}}" class="image">
                                                                 @php
                                                                     $images = json_decode($data->images);
                                                                 @endphp
@@ -875,7 +875,7 @@
                                                     <div class="ec-pro-content">
                                                         <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">
                                                                 {{$data->name}}</h6></a>
-                                                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{$data->brand->name}}</a></h5>
+                                                        <h5 class="ec-pro-title"><a href="/product/{{$data->id}}">{{$data->brand->name}}</a></h5>
                                                         <div class="ec-pro-rat-price">
                                                         <span class="ec-pro-rating">
                                                             <i class="ecicon eci-star fill"></i>

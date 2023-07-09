@@ -55,6 +55,7 @@ Route::get('/register', function () {
 });
 Route::post('/register', [AuthHandlerController::class, 'registerByRole']);
 Route::resource('/buyer/productlist', HomePageController::class);
+Route::get('/product/{id}', [ProductController::class,'show']);
 
 
 //admin route
