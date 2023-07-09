@@ -66,7 +66,7 @@ class ProductController extends Controller
 
             $data->images = json_encode($images);
         }
-        
+
         // $data->product_type_id = $request->product_type_id;
         $data->brand_id        = $request->brand_id;
         // dd($data);
@@ -96,8 +96,6 @@ class ProductController extends Controller
         //
 
         $data = Product::find($id);
-
-
         return view('product.show', compact('data'));
     }
 

@@ -18,6 +18,18 @@ class CategorySeeder extends Seeder
     {
         //
         DB::table('categories')->insert([
+            'name' => 'New Arrivals',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Deals',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Clothes',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Cosmetics',
+        ]);
+        DB::table('categories')->insert([
             'name' => 'Casual',
         ]);
 
@@ -45,6 +57,6 @@ class CategorySeeder extends Seeder
             'name' => 'Shoulder Bag',
         ]);
 
-     
+
     }
 }
