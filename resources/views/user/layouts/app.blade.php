@@ -38,7 +38,6 @@
 </head>
 <body>
 <div id="ec-overlay"><span class="loader_img"></span></div>
-
 <!-- Header start  -->
 <header class="ec-header">
     <!--Ec Header Top Start -->

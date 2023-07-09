@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($transactions as $item)
+                                @forelse ($collection as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>
@@ -42,10 +42,10 @@
                                                     aria-haspopup="true" aria-expanded="false" data-display="static"></a>
                                                 <ul class="dropdown-menu dropdown-menu-right">
                                                     <li class="dropdown-item">
-                                                        <a href="{{route('transaction.show', $item->id)}}">View</a>
+                                                        <a href="{{route('transaction.show')}}">View</a>
                                                     </li>
                                                     <li class="dropdown-item">
-                                                        <a data-href="{{route('transaction.show', $item->id)}}">Remove</a>
+                                                        <a href="#">Remove</a>
                                                     </li>
                                                 </ul>
                                             </div>
