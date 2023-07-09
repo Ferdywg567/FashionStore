@@ -11,7 +11,7 @@
                 </ul>
             </div>
         @endif
-        <form method="POST" action="{{route('product.store')}}">
+        <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label>Nama Product :</label>
@@ -33,7 +33,7 @@
                        placeholder="Isi dengan description product">
                 <br>
                 <label>Image :</label>
-                <input type="file" class="form-control" id='image' name='images'>
+                <input type="file" class="form-control" id='image' name='images[]' multiple>
                 <br>
                 <label>Product Type :</label>
                 <select name="product_type_id[]" class="form-control" multiple>

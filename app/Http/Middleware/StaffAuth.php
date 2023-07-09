@@ -20,7 +20,7 @@ class StaffAuth
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        elseif (Auth::user()->role == 3) {
+        elseif (Auth::user()->role_id == 3) {
             return redirect()->route('home');
         }
         else {

@@ -30,6 +30,16 @@ return [
 
     'disks' => [
 
+        'public_product' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/products',
+        ],
+        
+        'public_user' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/users',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

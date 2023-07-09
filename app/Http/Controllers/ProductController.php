@@ -33,7 +33,7 @@ class ProductController extends Controller
         //
         $brands = Brand::all();
         $producttypes = ProductType::all();
-        return view('admin.product.formcreate', compact('brands','producttypes'));
+        return view('admin.product.formcreate', compact('brands', 'producttypes'));
     }
 
     /**
@@ -44,18 +44,45 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $data = new Product();
-        $data->name= $request->get('namaprod');
-        $data->price= $request->get('hargajual');
-        $data->stock= $request->get('stock');
-        $data->size= $request->get('sizes');
-        $data->description= $request->get('desc');
-        $data->image= $request->get('images');
-        $data->product_type_id= $request->get('product_type_id');
-        $data->brand_id= $request->get('brand_id');
+        // dd($request->images);
+        $images = [];
+
+        DB::beginTransaction();
+
+        $data                  = new Product();
+        $data->name            = $request->namaprod;
+        $data->price           = $request->hargajual;
+        $data->stock           = $request->stock;
+        $data->size            = $request->sizes;
+        $data->description     = $request->desc;
+        // $data->images           = $request->images;
+        if ($request->images) {
+            foreach ($request->images as $key => $image) {
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('/products'), $image_name);
+
+                $images[] = "products/$image_name";
+            }
+
+            $data->images = json_encode($images);
+        }
+        
+        // $data->product_type_id = $request->product_type_id;
+        $data->brand_id        = $request->brand_id;
+        // dd($data);
         $data->save();
-        return redirect()->route('product.index')->with('status','Horray!! Your new product data is already inserted');
+
+        $data->categories()->sync($request->product_type_id);
+
+        DB::commit();
+        // try {
+
+        // } catch (\Throwable $th) {
+        //     DB::rollBack();
+        //     return redirect()->route('product.index')->with('status', 'Oops, looks like there are some errors when creating product.');
+        // }
+
+        return redirect()->route('product.index')->with('status', 'Horray!! Your new product data is already inserted');
     }
 
     /**
@@ -71,7 +98,7 @@ class ProductController extends Controller
         $data = Product::find($id);
 
 
-        return view('product.show',compact('data'));
+        return view('product.show', compact('data'));
     }
 
     /**
@@ -86,8 +113,8 @@ class ProductController extends Controller
         $objProduct = Product::find($id);
         $producttypes = ProductType::all();
         $brands = Brand::all();
-        $data=$objProduct;
-        return view ('admin.product.formedit',compact('data','producttypes','brands'));
+        $data = $objProduct;
+        return view('admin.product.formedit', compact('data', 'producttypes', 'brands'));
     }
 
     /**
@@ -100,16 +127,16 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $objProduct = Product::find($id);
-        $objProduct->name = $request->get('namaprod');
-        $objProduct->price = $request->get('hargajual');
-        $objProduct->stock= $request->get('stock');
-        $objProduct->size= $request->get('sizes');
-        $objProduct->description= $request->get('desc');
-        $objProduct->image= $request->get('images');
+        $objProduct              = Product::find($id);
+        $objProduct->name        = $request->get('namaprod');
+        $objProduct->price       = $request->get('hargajual');
+        $objProduct->stock       = $request->get('stock');
+        $objProduct->size        = $request->get('sizes');
+        $objProduct->description = $request->get('desc');
+        $objProduct->image       = $request->get('images');
         // $objProduct->product_type_id= $request->get('product_type_id');
         // $objProduct->brand_id= $request->get('brand_id');
-     
+
         $objProduct->save();
         return redirect()->route('product.index')->with('status', 'Your Product is already up-to-date');
     }
@@ -123,16 +150,13 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        try{
+        try {
             $objProduct = Product::find($id);
             $objProduct->delete();
             return redirect()->route('product.index')->with('status', 'Your Product is already removed');
-
-
-        }catch(\PDOException $ex)
-        {
+        } catch (\PDOException $ex) {
             $msg = "Data Gagal dihapus. Pastikan kembali tidak ada data yang berelasi sebelum dihapus";
-            return redirect()->route('product.index')->with('status',$msg);
+            return redirect()->route('product.index')->with('status', $msg);
         }
     }
 }
