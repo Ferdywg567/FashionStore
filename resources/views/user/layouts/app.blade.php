@@ -42,6 +42,64 @@
 <body>
     <div id="ec-overlay"><span class="loader_img"></span></div>
 
+<!-- Header start  -->
+<header class="ec-header">
+    <!--Ec Header Top Start -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Header Top social Start -->
+                <div class="col text-left header-top-left d-none d-lg-block">
+                    <div class="header-top-social">
+                        <span class="social-text text-upper">Follow us on:</span>
+                        <ul class="mb-0">
+                            <li class="list-inline-item"><a class="hdr-facebook" href="#"><i
+                                        class="ecicon eci-facebook"></i></a></li>
+                            <li class="list-inline-item"><a class="hdr-twitter" href="#"><i
+                                        class="ecicon eci-twitter"></i></a></li>
+                            <li class="list-inline-item"><a class="hdr-instagram" href="#"><i
+                                        class="ecicon eci-instagram"></i></a></li>
+                            <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i
+                                        class="ecicon eci-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Header Top social End -->
+                <!-- Header Top Category Toggle Start -->
+                <a href="#ec-mobile-sidebar" class="ec-header-btn ec-sidebar-toggle d-lg-none">
+                    <img src="{{asset('')}}assets/images/icons/category-icon.svg" class="svg_img header_svg" alt="icon"/>
+                </a>
+                <!-- Header Top Category Toggle End -->
+                <!-- Header Top Message Start -->
+                <div class="col text-center header-top-center">
+                    <div class="header-top-message text-upper">
+                        <span>Free Shipping</span>This Week Order Over - $75
+                    </div>
+                </div>
+                <!-- Header Top Message End -->
+                <!-- Header Top Language Currency -->
+                <div class="col header-top-right d-none d-lg-block">
+                    <div class="header-top-lan-curr d-flex justify-content-end">
+                        <!-- Currency Start -->
+                        <div class="header-top-curr dropdown">
+                            <button class="dropdown-toggle text-upper" data-bs-toggle="dropdown">Currency <i
+                                    class="ecicon eci-caret-down" aria-hidden="true"></i></button>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a class="dropdown-item" href="#">USD $</a></li>
+                                <li><a class="dropdown-item" href="#">EUR €</a></li>
+                            </ul>
+                        </div>
+                        <!-- Currency End -->
+                        <!-- Language Start -->
+                        <div class="header-top-lan dropdown">
+                            <button class="dropdown-toggle text-upper" data-bs-toggle="dropdown">Language <i
+                                    class="ecicon eci-caret-down" aria-hidden="true"></i></button>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">Italiano</a></li>
+                            </ul>
+                        </div>
+                        <!-- Language End -->
     <!-- Header start  -->
     <header class="ec-header">
         <!--Ec Header Top Start -->
