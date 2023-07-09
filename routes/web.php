@@ -85,4 +85,5 @@ Route::middleware('auth')->group(function() {
     Route::get('delete-cart/{cart}', [CartController::class, 'destroy'])->name('deleteCart');
     Route::get('checkout', [TransactionController::class, 'checkout'])->name('checkout');
     Route::get('receipt/show/{transaction}', [TransactionController::class, 'showReceipt'])->name('showReceipt');
+    Route::get('history', [HomePageController::class, 'histories'])->name('history');
 });
