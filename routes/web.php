@@ -7,10 +7,8 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BuyerController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\StaffController;
-use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,16 +63,9 @@ Route::get('/product/{id}', [ProductController::class,'show']);
 //admin route
 Route::get('/admin/login', function () {
     return view('admin.auth.login');
-}); 
+});
 
 Route::post('/admin/login', [AuthHandlerController::class, 'loginByRole']);
 
 Route::get('/logout', [AuthHandlerController::class, 'signOut']);
 
-Route::middleware('auth')->group(function() {
-    Route::get('add-to-cart/{product}', [CartController::class, 'addToCart'])->name('add.to.cart');
-    Route::resource('cart', CartController::class)->only(['update']);
-    Route::get('delete-cart/{cart}', [CartController::class, 'destroy'])->name('deleteCart');
-    Route::get('checkout', [TransactionController::class, 'checkout'])->name('checkout');
-    Route::get('receipt/show/{transaction}', [TransactionController::class, 'showReceipt'])->name('showReceipt');
-});

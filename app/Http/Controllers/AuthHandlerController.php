@@ -15,7 +15,7 @@ class AuthHandlerController extends Controller
     private function login(Request $request): bool
     {
         $request->validate([
-            'email'    => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
