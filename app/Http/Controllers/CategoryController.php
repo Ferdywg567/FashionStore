@@ -43,23 +43,14 @@ class CategoryController extends Controller
         //
         $data = new Category();
 
-        $data->name= $request->get('namecate');
+        $data->name = $request->get('namecate');
       
         $data->save();
+
         return redirect()->route('category.index')->with('status','Horray!! Your new category data is already inserted');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

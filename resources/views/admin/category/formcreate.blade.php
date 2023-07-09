@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('admin-content')
     <div class="content">
-        <form enctype="multipart/form-data" role="form" method='POST' action="{{ url('category') }}">
+        <form enctype="multipart/form-data" role="form" method='POST' action="{{ route('category.store') }}">
 
             @csrf
             <div class="form-group">
